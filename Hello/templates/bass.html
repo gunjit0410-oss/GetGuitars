@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}Bass Guitars{% endblock title %}
+{% load static %}
+
+{% block body %}
+<style>
+  /* Premium Guitar/Product Card Styles */
+  .guitar-collection-title {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  }
+
+  .guitar-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .guitar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .guitar-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .guitar-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .guitar-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .guitar-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+
+  .guitar-card p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    min-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .guitar-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffc107 !important;
+    margin-bottom: 20px;
+  }
+
+  .buy-buttons .btn {
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  }
+
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .btn-primary:hover {
+    background: #ffffff;
+    color: #0c0c0e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  }
+</style>
+
+<div class="container my-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="guitar-collection-title text-uppercase">
+      Bass Guitars Collection
+    </h1>
+    <p class="lead text-light bg-dark d-inline-block px-4 py-2 rounded" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1);">
+      Choose from premium brands at the best prices
+    </p>
+  </div>
+
+  <!-- Products Row -->
+  <div class="row g-4">
+    <!-- Bass 1 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.goSs1JaVCaZ8NlSJKi06eQHaHa?w=162&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Fender Precision Bass">
+        <div class="card-body text-center">
+          <h4>Fender Precision Bass</h4>
+          <p>Alder Body, Maple Neck, Split Single-Coil Pickup</p>
+          <h5 class="guitar-price">₹68,999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Fender+Precision+Bass" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Fender+Precision+Bass" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bass 2 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.6eqwfAzsDiijAgRDdJO3xwHaHa?w=188&h=188&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Ibanez GSR200">
+        <div class="card-body text-center">
+          <h4>Ibanez GSR200 Bass</h4>
+          <p>Agathis Body, Maple Neck, Phat II EQ Bass Boost</p>
+          <h5 class="guitar-price">₹19,999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Ibanez+GSR200" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Ibanez+GSR200" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bass 3 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.UNVXsIUDl0062dH-jO_g6AHaHa?w=199&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Yamaha TRBX174">
+        <div class="card-body text-center">
+          <h4>Yamaha TRBX174</h4>
+          <p>Mahogany Body, Split Coil & Single Coil Pickups</p>
+          <h5 class="guitar-price">₹17,490</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Yamaha+TRBX174" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Yamaha+TRBX174" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bass 4 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="data:image/webp;base64,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" class="card-img-top" alt="Cort Action Bass V">
+        <div class="card-body text-center">
+          <h4>Cort Action Bass V</h4>
+          <p>Poplar Body, 5-string Bass, Passive PJ Pickups</p>
+          <h5 class="guitar-price">₹21,999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Cort+Action+Bass+V" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Cort+Action+Bass+V" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

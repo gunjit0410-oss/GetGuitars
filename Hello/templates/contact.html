@@ -1,0 +1,160 @@
+{% extends  'base.html' %}
+{% block title%}Contact{%endblock title%}
+
+{% block body%}
+<style>
+
+.contact-section{
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.contact-title{
+    text-align:center;
+    color:#F5E6C8;
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:30px;
+
+    -webkit-text-stroke:1px #000;
+    text-shadow:
+        0 0 10px rgba(255,215,0,.6),
+        2px 2px 4px rgba(0,0,0,.7);
+}
+
+.contact-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.contact-image{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.4);
+}
+
+.form-control{
+    border-radius:15px;
+    padding:12px;
+}
+
+.form-control:focus{
+    box-shadow:0 0 12px rgba(255,215,0,.6);
+    border-color:#FFD700;
+}
+
+.submit-btn{
+    background:linear-gradient(45deg,#FFD700,#FFA500);
+    border:none;
+    color:black;
+    font-weight:700;
+    padding:12px 35px;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 15px gold;
+}
+
+.form-label{
+    font-weight:600;
+    color:white;
+}
+form,
+input,
+textarea,
+label {
+    direction: ltr !important;
+    text-align: left !important;
+}
+</style>
+
+<div class="container contact-section">
+
+    <h1 class="contact-title">
+        Contact Us
+    </h1>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-8 col-md-10">
+
+            <div class="contact-card">
+
+                <form method="post" action="/contact">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">
+                            Full Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="name"
+                               name="name"
+                               placeholder="Enter your name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">
+                            Phone Number
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="phone"
+                               name="phone"
+                               placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            Email Address
+                        </label>
+
+                        <input type="email"
+                               class="form-control"
+                               id="email"
+                               name="email"
+                               placeholder="Enter your email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="desc" class="form-label">
+                            Message
+                        </label>
+
+                        <textarea class="form-control"
+                                  id="desc"
+                                  name="desc"
+                                  rows="5"
+                                  placeholder="Tell us your issue or query..."></textarea>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button class="submit-btn" type="submit">
+                            Send Message
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock body%}

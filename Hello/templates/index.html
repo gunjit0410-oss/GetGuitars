@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% load static %}
+
+{% block body %}
+<style>
+  /* Premium Home-Specific CSS */
+  .hero-welcome-card {
+    background: rgba(20, 20, 20, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    margin-bottom: 50px;
+  }
+
+  .hero-welcome-title {
+    font-size: 3rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(45deg, #ffc107, #ff914d);
+    border-radius: 2px;
+  }
+
+  /* Carousel Customization */
+  .carousel-wrapper {
+    max-width: 1050px;
+    margin: 0 auto 60px auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .carousel-item img {
+    height: 520px;
+    object-fit: cover;
+  }
+
+  .carousel-caption-custom {
+    background: rgba(10, 10, 10, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 20px 30px;
+    border-radius: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    bottom: 40px;
+  }
+
+  .carousel-caption-custom h5 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ffc107;
+    margin-bottom: 8px;
+  }
+
+  .carousel-caption-custom p {
+    font-size: 1.05rem;
+    color: #e2e8f0;
+    margin: 0;
+  }
+
+  /* Premium Grid Cards */
+  .category-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .card-img-wrapper {
+    overflow: hidden;
+    position: relative;
+    height: 230px;
+  }
+
+  .card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .category-card:hover .card-img-wrapper img {
+    transform: scale(1.08);
+  }
+
+  .category-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .category-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .category-card:hover .category-title {
+    color: #ffc107;
+  }
+
+  .view-btn {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    font-weight: 700;
+    border: none;
+    border-radius: 30px;
+    padding: 8px 32px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+    text-decoration: none;
+  }
+
+  .view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+</style>
+
+<div class="container my-5">
+  <!-- PREMIUM WELCOME SECTION -->
+  <div class="hero-welcome-card text-center">
+    <span class="badge bg-warning text-dark mb-3 px-3 py-2 rounded-pill fw-bold text-uppercase" style="letter-spacing: 1px; font-size: 0.8rem;">
+      Premium Guitar Store
+    </span>
+    <h2 class="hero-welcome-title mb-3">
+      🎸 Welcome to Get Guitars
+    </h2>
+    <p class="lead text-light-muted mx-auto" style="max-width: 750px; color: #a0aec0; font-size: 1.15rem; line-height: 1.7;">
+      Discover a curated catalog of premium Acoustic, Electric, Bass Guitars and elite accessories from legendary brands. Crafted for amateurs, professionals, and everyone in between.
+    </p>
+  </div>
+
+  <!-- SECTION 1: FEATURED SELECTION CAROUSEL -->
+  <div class="text-center mb-4">
+    <h3 class="section-title">Featured Highlights</h3>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1729620661281-d099a1f83ccf?guitarsw=800&auto=format&fit=crop&q=80" class="d-block w-100" alt="New Guitar Arrivals">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption-custom">
+              <h5>Welcome to Get Guitars</h5>
+              <p>Explore elite options crafted to match your unique musical journey.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1563357989-f6cdbbae76cb?guitarsw=800&auto=format&fit=crop&q=80" class="d-block w-100" alt="Electric Guitars">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption-custom">
+              <h5>The Ultimate Electric Range</h5>
+              <p>Unleash powerful distortion, sustain, and crisp modern tones.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1760413209533-c65c9e6b538f?guitarsw=800&auto=format&fit=crop&q=80" class="d-block w-100" alt="Acoustic Guitars">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption-custom">
+              <h5>Pure Acoustic Resonance</h5>
+              <p>Stunning tonewood selections providing warm, rich acoustic projection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 2: BROWSE CATEGORIES & ACCESSORIES -->
+  <div class="text-center my-5">
+    <h3 class="section-title">Browse Our Collections</h3>
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+    <!-- Card 1: Bass Guitars -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://media.istockphoto.com/id/651209608/photo/close-up-photo-of-bass-guitar-player.webp?a=1&b=1&s=612x612&w=0&k=20&c=6DuhU1lOT634QCiO8YHwXk_o6MxN1e6jqPtlf1QJd4g=" alt="Bass Guitars">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Bass Guitars</h4>
+          <a href="/bass" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2: Electric Guitars -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?w=500&auto=format&fit=crop&q=60" alt="Electric Guitars">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Electric Guitars</h4>
+          <a href="/electric" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3: Acoustic Guitars -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1565075772172-5a232b7d5008?w=500" alt="Acoustic Guitars">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Acoustic Guitars</h4>
+          <a href="/acoustic" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Ukulele -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1624247079844-d306e0157dbb?w=500&auto=format&fit=crop&q=60" alt="Ukuleles">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Ukuleles</h4>
+          <a href="/ukulele" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 5: Guitar Covers -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1568193755639-966996b79a9a?w=500&auto=format&fit=crop&q=60" alt="Guitar Covers & Bags">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Guitar Covers</h4>
+          <a href="/covers" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 6: Strings & Picks -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1636800874844-fda5deef5b05?w=500&auto=format&fit=crop&q=60" alt="Strings & Picks">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Strings & Picks</h4>
+          <a href="/picks" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 7: Straps -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1599302863963-5da550e24adf?w=500&auto=format&fit=crop&q=60" alt="Guitar Straps">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Guitar Straps</h4>
+          <a href="/straps" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8: Amplifiers -->
+    <div class="col">
+      <div class="card category-card">
+        <div class="card-img-wrapper">
+          <img src="https://images.unsplash.com/photo-1557855684-8aa6f40997df?w=500&auto=format&fit=crop&q=60" alt="Amplifiers & Cables">
+        </div>
+        <div class="card-body">
+          <h4 class="category-title">Amplifiers & Cables</h4>
+          <a href="/amplifiers" class="view-btn">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

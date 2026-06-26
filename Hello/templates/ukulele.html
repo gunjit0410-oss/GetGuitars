@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}Ukuleles{% endblock title %}
+{% load static %}
+
+{% block body %}
+<style>
+  /* Premium Guitar/Product Card Styles */
+  .guitar-collection-title {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  }
+
+  .guitar-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .guitar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .guitar-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .guitar-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .guitar-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .guitar-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+
+  .guitar-card p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    min-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .guitar-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffc107 !important;
+    margin-bottom: 20px;
+  }
+
+  .buy-buttons .btn {
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  }
+
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .btn-primary:hover {
+    background: #ffffff;
+    color: #0c0c0e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  }
+</style>
+
+<div class="container my-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="guitar-collection-title text-uppercase">
+      Ukuleles Collection
+    </h1>
+    <p class="lead text-light bg-dark d-inline-block px-4 py-2 rounded" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1);">
+      Choose from premium brands at the best prices
+    </p>
+  </div>
+
+  <!-- Products Row -->
+  <div class="row g-4">
+    <!-- Ukulele 1 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.rY725zoppzi-vnduTHHWDAHaHd?w=186&h=187&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Kala KA-15S">
+        <div class="card-body text-center">
+          <h4>Kala KA-15S Ukulele</h4>
+          <p>Soprano Ukulele, Mahogany Body, Satin Finish</p>
+          <h5 class="guitar-price">₹5,499</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Kala+KA-15S+Ukulele" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Kala+KA-15S+Ukulele" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ukulele 2 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="data:image/webp;base64,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" class="card-img-top" alt="Flight Concert">
+        <div class="card-body text-center">
+          <h4>Flight Concert Ukulele</h4>
+          <p>Sapele wood Body, Premium gig bag included</p>
+          <h5 class="guitar-price">₹8,999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Flight+Concert+Ukulele" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Flight+Concert+Ukulele" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ukulele 3 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OPAC.Y3yTZ92a6cbOFA474C474?w=159&h=192&o=5&dpr=1.5&pid=21.1" class="card-img-top" alt="Cordoba 15CM">
+        <div class="card-body text-center">
+          <h4>Cordoba 15CM Ukulele</h4>
+          <p>Concert Ukulele, Mahogany Top, Back & Sides</p>
+          <h5 class="guitar-price">₹11,499</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Cordoba+15CM+Ukulele" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Cordoba+15CM+Ukulele" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ukulele 4 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.YLTDFTTucwnHBlGSwgdAbwAAAA?w=162&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Juarez Ukulele">
+        <div class="card-body text-center">
+          <h4>Juarez JRZ23UK Ukulele</h4>
+          <p>Concert Ukulele, Sapele body, Aquila Strings</p>
+          <h5 class="guitar-price">₹2,199</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Juarez+JRZ23UK+Ukulele" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Juarez+JRZ23UK+Ukulele" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+{% block title %}Acoustic Guitars{% endblock title %}
+
+{% block body %}
+<style>
+  /* Premium Guitar/Product Card Styles */
+  .guitar-collection-title {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  }
+
+  .guitar-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .guitar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .guitar-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .guitar-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .guitar-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .guitar-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+
+  .guitar-card p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    min-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .guitar-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffc107 !important;
+    margin-bottom: 20px;
+  }
+
+  .buy-buttons .btn {
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  }
+
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .btn-primary:hover {
+    background: #ffffff;
+    color: #0c0c0e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  }
+</style>
+
+<div class="container my-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="guitar-collection-title text-uppercase">
+      Acoustic Guitars Collection
+    </h1>
+    <p class="lead text-light bg-dark d-inline-block px-4 py-2 rounded" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1);">
+      Choose from premium brands at the best prices
+    </p>
+  </div>
+
+    <!-- Products Row -->
+    <div class="row g-4">
+
+        <!-- Guitar 1 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="https://images.unsplash.com/photo-1709814375658-193c0a5ec609?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8eWFtYWhhJTIwZjI4MCUyMGd1aXRhcnxlbnwwfHwwfHx8MA%3D%3D" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>Yamaha F280</h4>
+                    <p>Solid Spruce Top, Rich Tone, 6 Strings</p>
+                    <h5 class="guitar-price">₹7,999</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Yamaha+F280+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Yamaha+F280+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guitar 2 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTaLArA2qlfBHMKArYevjqgQH2uIbH0j1CgoA0N9ugU8fKM8_yFCC9sYVnTBzQ1RdZ0iP3ajOSFda3Okw5kOjhm-yvWhAc3F1_oUvux64vxhZp5Wal0fzGqng" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>Kadence FR77NA Frontier Acoustic Guitar</h4>
+                    <p>Cutaway Design, Equalizer, Smooth Neck</p>
+                    <h5 class="guitar-price">₹5,899</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Kadence+FR77NA+Frontier+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Kadence+FR77NA+Frontier+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guitar 3 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="https://www.bajaao.com/cdn/shop/files/fender-electro-acoustic-guitars-natural-fender-squier-sa-105ce-cutaway-electro-acoustic-guitar-23059361923251.jpg?v=1741968626&width=1400" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>Fender SA-105</h4>
+                    <p>Laminated Body, Bright Sound, Durable</p>
+                    <h5 class="guitar-price">₹14,499</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Fender+SA-105+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Fender+SA-105+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guitar 4 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="data:image/jpeg;base64,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" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>YAMAHA FS400C NATURAL SATIN Acoustic Guitar</h4>
+                    <p>Solid Wood Rosewood Right Hand Orientation (Brown)</p>
+                    <h5 class="guitar-price">₹13,491</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Yamaha+FS400C+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Yamaha+FS400C+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guitar 5 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="https://rukminim2.flixcart.com/image/1366/1366/xif0q/acoustic-guitar/o/d/t/int-38c-sb-intern-original-imahg9hp5p5nwdfy.jpeg?q=90" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>Intern Int-38c-sb acoustic guitar</h4>
+                    <p>Linden Wood Rosewood Right Hand Orientation (Brown)</p>
+                    <h5 class="guitar-price">₹2,189</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Intern+INT-38C+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Intern+INT-38C+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Guitar 6 -->
+        <div class="col-md-4">
+            <div class="card guitar-card h-100">
+                <img src="https://rukminim2.flixcart.com/image/1366/1366/xif0q/acoustic-guitar/g/4/d/sh-04n-kadence-original-imahgygzfzzzj6y6.jpeg?q=90" class="card-img-top" height="250">
+                <div class="card-body text-center">
+                    <h4>KADENCE SH-04N Semi-acoustic Guitar </h4>
+                    <p>Spruce Wood Rosewood Right Hand Orientation (Black)</p>
+                    <h5 class="guitar-price">₹10,000</h5>
+                    <div class="buy-buttons d-flex justify-content-center gap-2">
+
+    <a href="https://www.amazon.in/s?k=Kadence+SH-04N+Semi+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-warning">
+       Amazon
+    </a>
+
+    <a href="https://www.flipkart.com/search?q=Kadence+SH-04N+Semi+Acoustic+Guitar"
+       target="_blank"
+       class="btn btn-primary">
+       Flipkart
+    </a>
+
+</div>
+                </div>
+            </div>
+        </div>
+
+        <!--guitar 7-->
+        <div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=800" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Cort AD810</h4>
+            <p>Spruce Top, Warm Tone, Beginner Friendly</p>
+            <h5 class="guitar-price">₹9,490</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-center gap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Cort+AD810+Acoustic+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Cort+AD810+Acoustic+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--guitar 8-->
+<div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=800" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Vault EA20</h4>
+            <p>Electro Acoustic, Cutaway Design</p>
+            <h5 class="guitar-price">₹7,999</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-center gap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Vault+EA20+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Vault+EA20+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- guitar 9-->
+ <div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Epiphone DR-100</h4>
+            <p>Mahogany Body, Premium Acoustic Sound</p>
+            <h5 class="guitar-price">₹14,999</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-centergap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Epiphone+DR100+Acoustic+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Epiphone+DR100+Acoustic+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--guitar 10-->
+<div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="data:image/webp;base64,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" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Juarez JRZ38C</h4>
+            <p>38 Inch Acoustic Guitar, Great for Beginners</p>
+            <h5 class="guitar-price">₹2,499</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-center gap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Juarez+JRZ38C+Acoustic+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Juarez+JRZ38C+Acoustic+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--guitar 11-->
+<div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="https://thfvnext.bing.com/th/id/OIP.qNTCNwFDsuL0DWtkZfribAHaFC?w=274&h=186&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.5&pid=1.7&rm=3" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Fender CD-60</h4>
+            <p>Dreadnought Design, Rich Resonance</p>
+            <h5 class="guitar-price">₹18,999</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-center gap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Fender+CD60+Acoustic+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Fender+CD60+Acoustic+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--guitar 12-->
+<div class="col-md-4">
+    <div class="card guitar-card h-100">
+        <img src="https://thfvnext.bing.com/th/id/OIP.m8arN_O98GRh8sHpTJCZvwHaHa?w=173&h=180&c=7&r=0&o=7&cb=thfvnextfalcon2&dpr=1.5&pid=1.7&rm=3" class="card-img-top">
+        <div class="card-body text-center">
+            <h4>Ibanez MD39C</h4>
+            <p>Cutaway Body, Excellent Projection</p>
+            <h5 class="guitar-price">₹8,999</h5>
+
+            <div class="buy-buttons d-flex justify-content-center align-items-center gap-2 mt-3">
+                <a href="https://www.amazon.in/s?k=Ibanez+MD39C+Acoustic+Guitar" target="_blank" class="btn btn-warning">Amazon</a>
+                <a href="https://www.flipkart.com/search?q=Ibanez+MD39C+Acoustic+Guitar" target="_blank" class="btn btn-primary">Flipkart</a>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+</div>
+
+{% endblock body %}

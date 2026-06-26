@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}Guitar Straps{% endblock title %}
+{% load static %}
+
+{% block body %}
+<style>
+  /* Premium Guitar/Product Card Styles */
+  .guitar-collection-title {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  }
+
+  .guitar-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .guitar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .guitar-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .guitar-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .guitar-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .guitar-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+
+  .guitar-card p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    min-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .guitar-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffc107 !important;
+    margin-bottom: 20px;
+  }
+
+  .buy-buttons .btn {
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  }
+
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .btn-primary:hover {
+    background: #ffffff;
+    color: #0c0c0e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  }
+</style>
+
+<div class="container my-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="guitar-collection-title text-uppercase">
+      Premium Guitar Straps
+    </h1>
+    <p class="lead text-light bg-dark d-inline-block px-4 py-2 rounded" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1);">
+      Choose from premium brands at the best prices
+    </p>
+  </div>
+
+  <!-- Products Row -->
+  <div class="row g-4">
+    <!-- Strap 1 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.1fz1SbJBj75ELQ63C3XvGQHaHa?w=189&h=189&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Fender Monogrammed Strap">
+        <div class="card-body text-center">
+          <h4>Fender Monogrammed Strap</h4>
+          <p>Classic Fender Logo Design, Fully Adjustable Length</p>
+          <h5 class="guitar-price">₹1,250</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Fender+Monogrammed+Strap" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Fender+Monogrammed+Strap" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strap 2 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="data:image/webp;base64,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" class="card-img-top" alt="Levy's Leathers Suede Strap">
+        <div class="card-body text-center">
+          <h4>Levy's Leathers Suede Strap</h4>
+          <p>2.5 Inch Tan Suede Guitar Strap with Suede Backing</p>
+          <h5 class="guitar-price">₹5,023</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Levys+Leathers+Suede+Strap" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Levys+Leathers+Suede+Strap" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strap 3 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.BQJ3B8faMqUJFUQm2B60EQHaHa?w=199&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Ernie Ball Polypro Strap">
+        <div class="card-body text-center">
+          <h4>Ernie Ball Polypro Strap</h4>
+          <p>Durable Polypropylene webbing, Secure Leather ends</p>
+          <h5 class="guitar-price">₹699</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Ernie+Ball+Polypro+Strap" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Ernie+Ball+Polypro+Strap" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Strap 4 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.3yXVEaKxnhaIrOQNLKZSzAHaJy?w=135&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="D'Addario Planet Waves Strap">
+        <div class="card-body text-center">
+          <h4>D'Addario Woven Guitar Strap</h4>
+          <p>Planet Lock System, Woven Fabric, Maximum Security</p>
+          <h5 class="guitar-price">₹1,499</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=DAddario+Planet+Waves+Strap" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=DAddario+Planet+Waves+Strap" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

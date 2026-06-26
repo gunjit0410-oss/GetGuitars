@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% block title %}Guitar Covers{% endblock title %}
+{% load static %}
+
+{% block body %}
+<style>
+  /* Premium Guitar/Product Card Styles */
+  .guitar-collection-title {
+    font-size: 2.8rem;
+    font-weight: 850;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #ffffff 30%, #ffc107 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255, 193, 7, 0.25);
+  }
+
+  .guitar-card {
+    background: rgba(22, 22, 22, 0.55) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .guitar-card:hover {
+    transform: translateY(-8px);
+    background: rgba(30, 30, 30, 0.8) !important;
+    border-color: rgba(255, 193, 7, 0.3) !important;
+    box-shadow: 0 20px 40px rgba(255, 193, 7, 0.15) !important;
+  }
+
+  .guitar-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .guitar-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .guitar-card .card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .guitar-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50px;
+  }
+
+  .guitar-card p {
+    font-size: 0.95rem;
+    color: #a0aec0;
+    min-height: 45px;
+    margin-bottom: 20px;
+  }
+
+  .guitar-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffc107 !important;
+    margin-bottom: 20px;
+  }
+
+  .buy-buttons .btn {
+    border-radius: 30px;
+    font-weight: 700;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-warning {
+    background: linear-gradient(135deg, #ffc107 0%, #ff914d 100%);
+    color: #0c0c0e !important;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+  }
+
+  .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    color: #000 !important;
+  }
+
+  .btn-primary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff !important;
+  }
+
+  .btn-primary:hover {
+    background: #ffffff;
+    color: #0c0c0e !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.25);
+  }
+</style>
+
+<div class="container my-5">
+  <!-- Heading -->
+  <div class="text-center mb-5">
+    <h1 class="guitar-collection-title text-uppercase">
+      Guitar Covers & Bags
+    </h1>
+    <p class="lead text-light bg-dark d-inline-block px-4 py-2 rounded" style="background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1);">
+      Choose from premium brands at the best prices
+    </p>
+  </div>
+
+  <!-- Products Row -->
+  <div class="row g-4">
+    <!-- Cover 1 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.-Ewz4rqoARQJDIXVTa_WhAHaHa?w=209&h=209&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Gator Cases Gig Bag">
+        <div class="card-body text-center">
+          <h4>Gator Cases Gig Bag</h4>
+          <p>Heavy-duty Nylon Exterior, 20mm Foam Padding</p>
+          <h5 class="guitar-price">₹9,840</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Gator+Cases+Guitar+Bag" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Gator+Cases+Guitar+Bag" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cover 2 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.oOq6VXuZabKdGNwGQ12P9QHaHa?w=199&h=199&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Mono M80 Premium Bag">
+        <div class="card-body text-center">
+          <h4>Mono M80 Sleeve Premium Case</h4>
+          <p>Ultra Light Waterproof exterior, Headlock Neck Support</p>
+          <h5 class="guitar-price">₹18,999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Mono+M80+Guitar+Bag" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Mono+M80+Guitar+Bag" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cover 3 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP._D1FIAwYEa3CdFI-TD9SDwHaHa?w=169&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Road Runner Case">
+        <div class="card-body text-center">
+          <h4>Road Runner Boulevard Gig Bag</h4>
+          <p>Sleek design, waterproof zippers, padded backpack straps</p>
+          <h5 class="guitar-price">₹7,499</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Road+Runner+Guitar+Bag" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Road+Runner+Guitar+Bag" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cover 4 -->
+    <div class="col-md-4">
+      <div class="card guitar-card h-100">
+        <img src="https://th.bing.com/th/id/OIP.ok-zfYapo3Axql48nIgMHwAAAA?w=163&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" class="card-img-top" alt="Juarez Padded Cover">
+        <div class="card-body text-center">
+          <h4>Juarez Padded Guitar Bag</h4>
+          <p>Dustproof & Waterproof Nylon, Front Accessory Pocket</p>
+          <h5 class="guitar-price">₹999</h5>
+          <div class="buy-buttons d-flex justify-content-center gap-2">
+            <a href="https://www.amazon.in/s?k=Juarez+Padded+Guitar+Bag" target="_blank" class="btn btn-warning">Amazon</a>
+            <a href="https://www.flipkart.com/search?q=Juarez+Padded+Guitar+Bag" target="_blank" class="btn btn-primary">Flipkart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
