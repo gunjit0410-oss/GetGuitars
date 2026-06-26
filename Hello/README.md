@@ -34,6 +34,7 @@ A modern Guitar Store website built using **Django**, **Python**, **HTML**, **CS
 
 - Python
 - Django
+- Rest API
 - HTML5
 - CSS3
 - Bootstrap 5
